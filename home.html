@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Tracker - Home</title>
+    <style>
+        body {
+            background: #111;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .main-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 48px;
+            text-align: center;
+        }
+        .button-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            width: 100%;
+            max-width: 400px;
+        }
+        .big-btn {
+            background: #fff;
+            color: #111;
+            font-size: 2rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 12px;
+            padding: 36px 0;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s, transform 0.2s;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+            width: 100%;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+        }
+        .big-btn:hover {
+            background: #4b4b4b;
+            color: #edecec;
+            transform: translateY(-4px) scale(1.03);
+        }
+        @media (max-width: 500px) {
+            .main-title {
+                font-size: 1.5rem;
+            }
+            .big-btn {
+                font-size: 1.2rem;
+                padding: 20px 0;
+            }
+            .button-grid {
+                gap: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-title">FITNESS TRACKER</div>
+    <div class="button-grid">
+        <a class="big-btn" href="{{ url_for('fitnessgoal') }}">GOALS</a>
+        <a class="big-btn" href="{{ url_for('workoutprogram') }}">WORKOUT</a>
+        <a class="big-btn" href="{{ url_for('bodymeasurement') }}">MEASUREMENTS</a>
+        <a class="big-btn" href="{{ url_for('nutritionlog') }}">DIET</a>
+        <a class="big-btn" href="{{ url_for('myworkoutplan') }}">MY WORKOUT PLAN</a>
+        <a class="big-btn" href="{{ url_for('generate_report') }}">DOWNLOAD REPORT</a>
+    </div>
+</body>
+</html>

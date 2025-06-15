@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Log Body Measurement</title>
+    <style>
+        body {
+            background: #111;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .form-container {
+            background: #222;
+            padding: 32px 36px;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+            max-width: 400px;
+            width: 100%;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 28px;
+            letter-spacing: 1px;
+        }
+        label {
+            display: block;
+            margin-bottom: 18px;
+            font-size: 1.1rem;
+        }
+        input[type="number"], input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            margin-top: 6px;
+            font-size: 1rem;
+            background: #181818;
+            color: #fff;
+        }
+        small {
+            color: #bbb;
+            font-size: 0.9em;
+        }
+        button {
+            width: 100%;
+            padding: 12px 0;
+            background: #fff;
+            color: #111;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            margin-top: 18px;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+        button:hover {
+            background: #444;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Body Measurement Log</h2>
+        <form method="post">
+            <label>
+                Weight (kg):
+                <input type="number" step="0.01" name="weight" min="20" max="300" required>
+                <small>(20 - 300 kg)</small>
+            </label>
+            <label>
+                Height (cm):
+                <input type="number" step="0.01" name="height" min="50" max="250" required>
+                <small>(50 - 250 cm)</small>
+            </label>
+            <label>
+                Body Fat Percentage (%):
+                <input type="number" step="0.01" name="body_fat" min="2" max="99.99" required>
+                <small>(2 - 99.99%)</small>
+            </label>
+            <label>
+                Chest (cm):
+                <input type="number" step="0.01" name="chest" min="30" max="200" required>
+                <small>(30 - 200 cm)</small>
+            </label>
+            <label>
+                Hip (cm):
+                <input type="number" step="0.01" name="hip" min="30" max="200" required>
+                <small>(30 - 200 cm)</small>
+            </label>
+            <label>
+                Date:
+                <input type="date" name="log_date" value="{{ date.today().isoformat() }}">
+            </label>
+            <button type="submit">Save Measurement</button>
+        </form>
+    </div>
+</body>
+</html>

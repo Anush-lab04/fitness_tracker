@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Log Nutrition</title>
+    <style>
+        body {
+            background: #111;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .form-container {
+            background: #222;
+            padding: 32px 36px;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+            max-width: 400px;
+            width: 100%;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 28px;
+            letter-spacing: 1px;
+        }
+        label {
+            display: block;
+            margin-bottom: 18px;
+            font-size: 1.1rem;
+        }
+        input[type="number"], input[type="date"], input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            margin-top: 6px;
+            font-size: 1rem;
+            background: #181818;
+            color: #fff;
+        }
+        input[type="radio"] {
+            margin-right: 6px;
+            accent-color: #fff;
+        }
+        small {
+            color: #bbb;
+            font-size: 0.9em;
+        }
+        .meal-radio-group {
+            display: flex;
+            gap: 16px;
+            margin-top: 8px;
+        }
+        button {
+            width: 100%;
+            padding: 12px 0;
+            background: #fff;
+            color: #111;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            margin-top: 18px;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+        button:hover {
+            background: #444;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Nutrition Log</h2>
+        <form method="post">
+            <label>
+                Meal Type:
+                <div class="meal-radio-group">
+                    <label><input type="radio" name="meal_type" value="breakfast" required> Breakfast</label>
+                    <label><input type="radio" name="meal_type" value="lunch"> Lunch</label>
+                    <label><input type="radio" name="meal_type" value="supper"> Supper</label>
+                </div>
+            </label>
+            <label>
+                Calories:
+                <input type="number" name="calories" min="10" max="3000" required>
+                <small>(10 - 3000)</small>
+            </label>
+            <label>
+                Food Item:
+                <input type="text" name="food_item" required>
+            </label>
+            <label>
+                Carbs (g):
+                <input type="number" step="0.01" name="carbs" min="0" max="500" required>
+                <small>(0 - 500g)</small>
+            </label>
+            <label>
+                Protein (g):
+                <input type="number" step="0.01" name="protein" min="0" max="300" required>
+                <small>(0 - 300g)</small>
+            </label>
+            <label>
+                Date:
+                <input type="date" name="log_date" value="{{ date.today().isoformat() }}">
+            </label>
+            <button type="submit">Save Nutrition</button>
+        </form>
+    </div>
+</body>
+</html>

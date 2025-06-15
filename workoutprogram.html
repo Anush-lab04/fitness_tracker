@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Workout Log</title>
+    <style>
+        body {
+            background: #111;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .form-container {
+            background: #222;
+            padding: 32px 36px;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+            max-width: 400px;
+            width: 100%;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 28px;
+            letter-spacing: 1px;
+        }
+        label {
+            display: block;
+            margin-bottom: 18px;
+            font-size: 1.1rem;
+        }
+        input[type="number"], input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            margin-top: 6px;
+            font-size: 1rem;
+            background: #181818;
+            color: #fff;
+        }
+        small {
+            color: #bbb;
+            font-size: 0.9em;
+        }
+        button {
+            width: 100%;
+            padding: 12px 0;
+            background: #fff;
+            color: #111;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            margin-top: 18px;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+        button:hover {
+            background: #444;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Workout Log</h2>
+        <form method="post">
+            <label>
+                Reps:
+                <input type="number" name="reps" min="1" max="100" required>
+                <small>(1 - 100)</small>
+            </label>
+            <label>
+                Weight Used (kg):
+                <input type="number" step="0.01" name="weight_used" min="0.5" max="500" required>
+                <small>(0.5 - 500 kg)</small>
+            </label>
+            <label>
+                Calories Burnt:
+                <input type="number" name="calorie_burnt" min="1" max="2000" required>
+                <small>(1 - 2000)</small>
+            </label>
+            <label>
+                Duration (minutes):
+                <input type="number" name="duration" min="1" max="300" required>
+                <small>(1 - 300 minutes)</small>
+            </label>
+            <label>
+                Date:
+                <input type="date" name="log_date" value="{{ date.today().isoformat() }}">
+            </label>
+            <button type="submit">Save Workout</button>
+        </form>
+    </div>
+</body>
+</html>
